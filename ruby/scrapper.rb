@@ -3,8 +3,15 @@
 require 'nokogiri'
 require 'restclient'
 require 'active_support/core_ext/object/blank'
+require 'json'
 
 class Scrapper
+
+  def self.run(location)
+    talk_data = create_railsconf_2014_talks
+    write_json_data location, talk_data
+  end
+
   def self.fetch_and_parse(url)
     Nokogiri::HTML(RestClient.get(url))
   end
@@ -27,5 +34,12 @@ class Scrapper
       }
     end
     talks
+  end
+
+  def self.write_json_data(location, hash)
+    json = JSON.generate hash
+    File.open(location, 'w') do |file|
+      file.write "function getData(){ return #{json} }"
+    end
   end
 end
