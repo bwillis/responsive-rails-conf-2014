@@ -101,7 +101,7 @@ function simpleElement(tagName, className, text) {
   var element = document.createElement(tagName);
   element.className = className;
   if (text !== undefined && text != null) {
-    element.innerText = text;
+    element.innerHTML = text;
   }
   return element;
 }
