@@ -94,6 +94,7 @@ h4 {
 
 .day header {
   margin: 20px;
+  cursor: pointer;
 }
 
 .timeslot {
@@ -147,4 +148,8 @@ hr {
   background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+.hidden + .timeslot{
+  display:none;
 }

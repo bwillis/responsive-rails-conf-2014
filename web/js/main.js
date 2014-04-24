@@ -29,8 +29,19 @@ window.onload = function () {
   Object.keys(talksByDayAndStartTime).forEach(function (date) {
 
     var dayContainer = simpleElement("div", "day", null);
+    if(!isDateToday(date)) {
+      dayContainer.className = dayContainer.className + ' hidden';
+    }
 
-    appendSimpleElement(dayContainer, "header", "", date);
+    var header = appendSimpleElement(dayContainer, "header", "", date);
+
+    header.onclick = function(){
+      if(this.className.match('hidden')) {
+        this.className = this.className.replace(' hidden', '');
+      } else {
+        this.className = this.className + ' hidden';
+      }
+    };
 
     schedule.appendChild(dayContainer);
 
@@ -59,9 +70,9 @@ window.onload = function () {
           appendSimpleElement(talkContainer, "p", "speaker", talk.speaker);
           appendSimpleElement(talkContainer, "p", "room", talk.room);
           appendSimpleElement(talkContainer, "p", "abstract", talk.abstract);
-          appendSimpleElement(talkContainer, "p", "time-range", talk.startTime + ' - ' + talk.stopTime);
+          appendSimpleElement(talkContainer, "p", "time-range", talk.startTime + ' - ' + talk.endTime);
           appendSimpleElement(talkContainer, "p", "speaker-description", talk.bio);
-          appendSimpleElement(talkContainer, "p", "track", talk.category);
+          appendSimpleElement(talkContainer, "p", "track", talk.getCategory());
         }
 
         timeContainer.appendChild(talkContainer);
@@ -73,8 +84,11 @@ window.onload = function () {
 
 function appendSimpleElement(target, tagName, className, text) {
   if(text !== undefined && text != null) {
-    target.appendChild(simpleElement(tagName, className, text));
+    var el = simpleElement(tagName, className, text);
+    target.appendChild(el);
+    return el;
   }
+  return null;
 }
 
 function simpleElement(tagName, className, text) {
@@ -86,20 +100,23 @@ function simpleElement(tagName, className, text) {
   return element;
 }
 
-function Talk(title, room, date, startTime, endTime, speaker, bio, timeOrder, category) {
+function isDateToday(stringDate) {
+  var now = new Date();
+  if(now.getMonth() != 3 || now.getFullYear() != 2014) {
+    return false;
+  }
+  return stringDate.match(now.getDate()) != null;
+}
+
+function Talk(title, room, date, startTime, endTime, speaker, bio, category) {
   this.title = title;
   this.room = room;
   this.date = date;
   this.startTime = startTime;
   this.endTime = endTime;
-  this.timeOrder = timeOrder;
   this.category = category;
   this.speaker = speaker;
   this.bio = bio;
-
-  this.hasSpeaker = function () {
-    return this.speaker != undefined && this.speaker != null;
-  };
 
   this.getCategory = function () {
     return {
@@ -113,11 +130,10 @@ function jsonToTalk(json) {
     json.title,
     json.room,
     json.date,
-    json.startTime,
-    json.endTime,
+    json.beginning_time,
+    json.end_time,
     json.speaker,
     json.bio,
-    json.timeOrder,
-    json.category
+    json.session_type
   );
 };
