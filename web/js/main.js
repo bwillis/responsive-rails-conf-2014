@@ -84,9 +84,45 @@ window.onload = function () {
         timeContainer.appendChild(talkContainer);
       }
     });
-  })
+  });
+    hideBiosAndAbstracts();
+    setExpandClickEvent();
 
 };
+
+function hideBiosAndAbstracts(){
+    var elems = document.getElementsByTagName('p'), i;
+    for (i in elems) {
+        if(elems[i].className == 'abstract' || elems[i].className == 'speaker-description'){
+            elems[i].style.display = 'none'
+        }
+    }
+}
+
+function setExpandClickEvent(){
+    var divs = document.getElementsByTagName("div"), d, i;
+    var talks = [];
+    var elems;
+    for(d in divs){
+        if(divs[d].className == 'talk'){
+            talks.push(divs[d])
+        }
+    }
+    for (i = 0; i < talks.length ; i++) {
+        talks[i].addEventListener("click",
+            function () {
+                elems = this.children;
+                for(i in elems) {
+                    if ((elems[i].className == 'abstract' || elems[i].className == 'speaker-description') && elems[i].style.display == 'none') {
+                        elems[i].style.display = '';
+                    } else if ((elems[i].className == 'abstract' || elems[i].className == 'speaker-description') && elems[i].style.display != 'none') {
+                        elems[i].style.display = 'none';
+                    }
+                }
+            },
+            false);
+    }
+}
 
 function appendSimpleElement(target, tagName, className, text) {
   if(text !== undefined && text != null) {
