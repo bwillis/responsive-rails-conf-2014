@@ -20,24 +20,73 @@ window.onload = function () {
     talksByDayAndStartTime[date][startTime].push(talks[i]);
   }
 
+  var schedule = document.getElementById("schedule");
+  var header = document.createElement('h2');
+  header.innerText = "Schedule";
+  schedule.appendChild(header);
+
   // 3) iterate and render the view
   Object.keys(talksByDayAndStartTime).forEach(function (date) {
-    console.log("=============");
+
+    var dayContainer = simpleElement("div", "day", null);
+
+    appendSimpleElement(dayContainer, "header", "", date);
+
+    schedule.appendChild(dayContainer);
+
     var talksByTime = talksByDayAndStartTime[date];
-    console.log(date);
     Object.keys(talksByTime).forEach(function (time) {
-      console.log(time);
+
+      var timeContainer = simpleElement("section", "timeslot", null);
+
+      appendSimpleElement(timeContainer, "h3", "start-time", time);
+
+      dayContainer.appendChild(timeContainer);
+
       var talks = talksByTime[time];
       for (var i = 0; i < talks.length; i++) {
         talk = talks[i];
-        console.log(talk.title);
+        var talkContainer = document.createElement('div');
+
+        if(talks.length == 1) {
+          talkContainer.className = "sole-talk";
+          appendSimpleElement(talkContainer, "h4", "title", talk.title);
+          appendSimpleElement(talkContainer, "p", "speaker", talk.speaker);
+          appendSimpleElement(talkContainer, "p", "room", talk.room);
+        }else{
+          talkContainer.className = "talk";
+          appendSimpleElement(talkContainer, "h4", "title", talk.title);
+          appendSimpleElement(talkContainer, "p", "abstract", talk.abstrct);
+          appendSimpleElement(talkContainer, "p", "room", talk.room);
+          appendSimpleElement(talkContainer, "p", "time-range", talk.startTime + ' - ' + talk.stopTime);
+          appendSimpleElement(talkContainer, "p", "speaker", talk.speaker);
+          appendSimpleElement(talkContainer, "p", "speaker-description", talk.bio);
+          appendSimpleElement(talkContainer, "p", "track", talk.category);
+        }
+
+        timeContainer.appendChild(talkContainer);
       }
     });
   })
 
 };
 
-function Talk(title, room, date, startTime, endTime, speaker, timeOrder, category) {
+function appendSimpleElement(target, tagName, className, text) {
+  if(text !== undefined && text != null) {
+    target.appendChild(simpleElement(tagName, className, text));
+  }
+}
+
+function simpleElement(tagName, className, text) {
+  var element = document.createElement(tagName);
+  element.className = className;
+  if (text !== undefined && text != null) {
+    element.innerText = text;
+  }
+  return element;
+}
+
+function Talk(title, room, date, startTime, endTime, speaker, bio, timeOrder, category) {
   this.title = title;
   this.room = room;
   this.date = date;
@@ -46,6 +95,7 @@ function Talk(title, room, date, startTime, endTime, speaker, timeOrder, categor
   this.timeOrder = timeOrder;
   this.category = category;
   this.speaker = speaker;
+  this.bio = bio;
 
   this.hasSpeaker = function () {
     return this.speaker != undefined && this.speaker != null;
@@ -66,6 +116,7 @@ function jsonToTalk(json) {
     json.startTime,
     json.endTime,
     json.speaker,
+    json.bio,
     json.timeOrder,
     json.category
   );
