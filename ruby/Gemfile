@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+ruby '2.1.0'
+
+gem 'rest-client', '1.6.7'
+gem 'nokogiri', '1.6.1'
+gem 'activesupport'

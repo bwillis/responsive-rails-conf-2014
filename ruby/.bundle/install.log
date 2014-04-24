@@ -1,0 +1,18 @@
+# Logfile created on 2014-04-23 21:51:29 -0500 by logger.rb/44203
+I, [2014-04-23T21:51:29.260462 #56084]  INFO -- : 0:  mime-types (1.25.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/mime-types-1.25.1.gemspec
+I, [2014-04-23T21:51:29.260762 #56084]  INFO -- : 0:  mini_portile (0.5.3) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/mini_portile-0.5.3.gemspec
+I, [2014-04-23T21:51:29.261025 #56084]  INFO -- : 0:  nokogiri (1.6.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/nokogiri-1.6.1.gemspec
+I, [2014-04-23T21:51:29.261296 #56084]  INFO -- : 0:  rest-client (1.6.7) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/rest-client-1.6.7.gemspec
+I, [2014-04-23T21:51:29.261522 #56084]  INFO -- : 0:  bundler (1.5.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.1.gemspec
+I, [2014-04-23T21:56:34.213393 #56570]  INFO -- : 0:  i18n (0.6.9) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/i18n-0.6.9.gemspec
+I, [2014-04-23T21:56:34.213740 #56570]  INFO -- : 0:  json (1.8.1) from /Users/bwillis/.rvm/rubies/ruby-2.1.0/lib/ruby/gems/2.1.0/specifications/default/json-1.8.1.gemspec
+I, [2014-04-23T21:56:34.213989 #56570]  INFO -- : 0:  minitest (5.3.3) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/minitest-5.3.3.gemspec
+I, [2014-04-23T21:56:34.214215 #56570]  INFO -- : 0:  atomic (1.1.16) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/atomic-1.1.16.gemspec
+I, [2014-04-23T21:56:34.214456 #56570]  INFO -- : 0:  thread_safe (0.3.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/thread_safe-0.3.1.gemspec
+I, [2014-04-23T21:56:34.214673 #56570]  INFO -- : 0:  tzinfo (1.1.0) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/tzinfo-1.1.0.gemspec
+I, [2014-04-23T21:56:34.214903 #56570]  INFO -- : 0:  activesupport (4.1.0) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/activesupport-4.1.0.gemspec
+I, [2014-04-23T21:56:34.215120 #56570]  INFO -- : 0:  mime-types (1.25.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/mime-types-1.25.1.gemspec
+I, [2014-04-23T21:56:34.215341 #56570]  INFO -- : 0:  mini_portile (0.5.3) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/mini_portile-0.5.3.gemspec
+I, [2014-04-23T21:56:34.215564 #56570]  INFO -- : 0:  nokogiri (1.6.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/nokogiri-1.6.1.gemspec
+I, [2014-04-23T21:56:34.215802 #56570]  INFO -- : 0:  rest-client (1.6.7) from /Users/bwillis/.rvm/gems/ruby-2.1.0/specifications/rest-client-1.6.7.gemspec
+I, [2014-04-23T21:56:34.216011 #56570]  INFO -- : 0:  bundler (1.5.1) from /Users/bwillis/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.1.gemspec
