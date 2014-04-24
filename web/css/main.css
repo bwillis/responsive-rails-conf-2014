@@ -93,8 +93,13 @@ h4 {
 }
 
 .day header {
-  margin: 20px;
+  color: steelblue;
   cursor: pointer;
+  margin: 20px;
+}
+
+.day header:hover {
+  text-decoration: underline;
 }
 
 .timeslot {
