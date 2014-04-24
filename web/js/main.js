@@ -3,7 +3,9 @@ window.onload = function () {
   // 1) translate data into objects
   var talks = [];
   for(var i=0; i<getData().length; i++) {
-    talks.push(jsonToTalk(getData()[i]));
+    if(getData()[i].title) {
+      talks.push(jsonToTalk(getData()[i]));
+    }
   }
 
   // 2) collect the data into a more usable form for display
@@ -112,7 +114,7 @@ function isDateToday(stringDate) {
   return stringDate.match(now.getDate()) != null;
 }
 
-function Talk(title, room, date, startTime, endTime, speaker, bio, category) {
+function Talk(title, room, date, startTime, endTime, speaker, abstract, bio, category) {
   this.title = title;
   this.room = room;
   this.date = date;
@@ -120,6 +122,7 @@ function Talk(title, room, date, startTime, endTime, speaker, bio, category) {
   this.endTime = endTime;
   this.category = category;
   this.speaker = speaker;
+  this.abstract = abstract;
   this.bio = bio;
 
   this.getCategory = function () {
@@ -149,6 +152,7 @@ function jsonToTalk(json) {
     json.begining_time,
     json.end_time,
     json.speaker,
+    json.abstract,
     json.bio,
     json.session_type
   );
