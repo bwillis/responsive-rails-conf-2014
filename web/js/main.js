@@ -56,10 +56,10 @@ window.onload = function () {
         }else{
           talkContainer.className = "talk";
           appendSimpleElement(talkContainer, "h4", "title", talk.title);
-          appendSimpleElement(talkContainer, "p", "abstract", talk.abstrct);
-          appendSimpleElement(talkContainer, "p", "room", talk.room);
-          appendSimpleElement(talkContainer, "p", "time-range", talk.startTime + ' - ' + talk.stopTime);
           appendSimpleElement(talkContainer, "p", "speaker", talk.speaker);
+          appendSimpleElement(talkContainer, "p", "room", talk.room);
+          appendSimpleElement(talkContainer, "p", "abstract", talk.abstract);
+          appendSimpleElement(talkContainer, "p", "time-range", talk.startTime + ' - ' + talk.stopTime);
           appendSimpleElement(talkContainer, "p", "speaker-description", talk.bio);
           appendSimpleElement(talkContainer, "p", "track", talk.category);
         }
