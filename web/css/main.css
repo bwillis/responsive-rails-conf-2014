@@ -89,11 +89,17 @@ h4 {
 .schedule {
   max-width: 800px;
   margin: 0 auto 20px auto;
-  width: 90%;
+  width: 99%;
 }
 
 .day header {
+  color: steelblue;
+  cursor: pointer;
   margin: 20px;
+}
+
+.day header:hover {
+  text-decoration: underline;
 }
 
 .timeslot {
@@ -123,7 +129,6 @@ h4 {
 
 .room {
   color: brown;
-  margin-bottom: .2em;
 }
 
 .time-range {
@@ -148,4 +153,8 @@ hr {
   background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+
+.hidden + .timeslot{
+  display:none;
 }
