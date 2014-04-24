@@ -112,15 +112,20 @@ h4 {
 }
 
 .start-time, .sole-talk, .talk {
-  padding: 5px 15px;
+  padding: 10px 15px;
+}
+
+.sole-talk.highlight, .talk.highlight {
+  background: lightyellow;
 }
 
 .start-time {
   background: lightgray;
+  border-bottom: 1px solid #eee;
   color: dimgray;
   font-size: 1em;
+  margin-bottom: 0;
   text-align: left;
-  border-bottom: 1px solid #eee;
 }
 
 .sole-talk {
@@ -153,8 +158,9 @@ hr {
   background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+  margin-top: 20px;
 }
 
-.hidden + .timeslot{
+.hidden .timeslot{
   display:none;
 }
