@@ -36,10 +36,10 @@ window.onload = function () {
     var header = appendSimpleElement(dayContainer, "header", "", date);
 
     header.onclick = function(){
-      if(this.className.match('hidden')) {
-        this.className = this.className.replace(' hidden', '');
+      if(dayContainer.className.match('hidden')) {
+        dayContainer.className = dayContainer.className.replace(' hidden', '');
       } else {
-        this.className = this.className + ' hidden';
+        dayContainer.className = dayContainer.className + ' hidden';
       }
     };
 
@@ -73,6 +73,10 @@ window.onload = function () {
           appendSimpleElement(talkContainer, "p", "time-range", talk.startTime + ' - ' + talk.endTime);
           appendSimpleElement(talkContainer, "p", "speaker-description", talk.bio);
           appendSimpleElement(talkContainer, "p", "track", talk.getCategory());
+        }
+
+        if (i + 1 < talks.length) {
+          talkContainer.appendChild(document.createElement("hr"));
         }
 
         timeContainer.appendChild(talkContainer);
@@ -141,8 +145,8 @@ function jsonToTalk(json) {
   return new Talk(
     json.title,
     json.room,
-    json.date,
-    json.beginning_time,
+    json.day,
+    json.begining_time,
     json.end_time,
     json.speaker,
     json.bio,
