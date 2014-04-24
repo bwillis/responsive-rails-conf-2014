@@ -147,7 +147,7 @@ function Talk(title, room, date, startTime, endTime, speaker, abstract, bio, cat
 function jsonToTalk(json) {
   return new Talk(
     json.title,
-    json.room,
+    json.location,
     json.day,
     json.begining_time,
     json.end_time,
