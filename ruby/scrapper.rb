@@ -57,8 +57,8 @@ class Scrapper
       link_anchor            = elm.at('a[name]')['name']
       # title                  = elm.css("header h1").inner_text
       # speaker                = elm.css("header h2").inner_text.presence
-      abstract               = elm.css('> p').inner_text
-      bio                    = elm.css('.bio').inner_text.presence
+      abstract               = elm.search('> p').text.strip
+      bio                    = elm.search('section.bio').text.strip
       corresponding_schedule = nil
       schedules.each do |_,tab|
         corresponding_schedule = tab.find do |schedule|
