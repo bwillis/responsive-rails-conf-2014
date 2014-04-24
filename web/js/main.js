@@ -120,7 +120,19 @@ function Talk(title, room, date, startTime, endTime, speaker, bio, category) {
 
   this.getCategory = function () {
     return {
-      'crafting_track': "Crafting Code"
+      'crafting_track': "Crafting Code",
+      'big_track': "Big Rails",
+      'sponsored_track': "Sponsored Session",
+      'workshop_track': "Workshop",
+      'growing_track': "Growing Talent",
+      'live_track': "Live Coding",
+      'distributed_track': "Distributed",
+      'crafting_track': "Crafting Code",
+      'learning_track': "Learning from Designers",
+      'testing_track': "Testing",
+      'beyond_track': "Beyond ERB",
+      'play_track': "Play Nicely",
+      'novice_track': "Novice"
     }[this.category];
   };
 };
